@@ -1,0 +1,179 @@
+:root {
+  --color-bg: #000;
+  --color-text: #fff;
+  --color-accent: #FF00B8;
+  --font-sans: 'Arial', sans-serif;
+}
+
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* NAV */
+header {
+  position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.8);
+  z-index: 100;
+}
+.nav {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+.nav .logo img { height: 120px; }
+.nav-links {
+  list-style: none; display: flex; gap: 1.5rem;
+}
+.nav-links a {
+  color: var(--color-text); text-decoration: none; font-weight: bold;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--color-accent); }
+
+/* HERO */
+.hero {
+  position: relative; height: 100vh;
+  background-image: url('hero_desktop.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 0 1rem;
+}
+.hero-overlay {
+  position: absolute; inset: 0; background: rgba(0,0,0,0.5);
+}
+.hero-content {
+  position: relative; max-width: 700px; color: var(--color-text);
+}
+.hero-content h1 {
+  font-size: 3rem; margin-bottom: 1rem;
+}
+.hero-content p {
+  font-size: 1.2rem; margin-bottom: 2rem;
+}
+.btn {
+  display: inline-block; padding: 0.8rem 2rem; text-decoration: none;
+  background: var(--color-accent); color: #000; font-weight: bold;
+  border-radius: 4px; transition: opacity 0.2s;
+}
+.btn:hover { opacity: 0.8; }
+
+@media (max-width: 768px) {
+  .hero {
+    background-image: url('hero_mobile.jpg');
+  }
+}
+/* SECCIONES SPLIT */
+.split {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;
+  padding: 6rem 2rem; max-width: 1200px; margin: auto;
+}
+.split.reverse { flex-direction: row-reverse; }
+.split .text { flex:1 1 300px; }
+.split .text h2 { color: var(--color-accent); margin-bottom: 1rem; }
+.split .text ul { margin-left: 1.2rem; list-style: disc; }
+.split .media { flex:1 1 300px; }
+.split .media img {
+  width: 100%; display: block; border-radius: 4px;
+}
+
+/* GALERÍA */
+.gallery-section {
+  padding: 6rem 2rem; text-align: center; max-width: 1200px; margin: auto;
+}
+.gallery-section h2 { color: var(--color-accent); margin-bottom: 2rem; }
+.gallery {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 1rem;
+}
+.gallery img {
+  width: 100%; height: auto; display: block;
+  border: 2px solid #111;
+  transition: transform 0.3s;
+}
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* CENTRADO SIMPLE */
+.text-center {
+  padding: 6rem 2rem; text-align: center;
+}
+.text-center h2 { color: var(--color-accent); margin-bottom: 1rem; }
+.text-center p { margin-bottom: 2rem; }
+
+/* EQUIPO */
+.team-section {
+  padding: 6rem 2rem; text-align: center; max-width: 1200px; margin: auto;
+}
+.team {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;
+}
+.member {
+  width: 200px; text-align: center;
+}
+.member img {
+  width: 200px; height: 200px; border-radius: 50%;
+  object-fit: cover; margin-bottom: 1rem;
+}
+
+/* CTA FINAL */
+.cta-final {
+  padding: 6rem 2rem; text-align: center; background: #111;
+}
+.cta-final h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+.cta-final .small { margin: 1rem 0; color: #888; }
+
+/* FOOTER */
+footer {
+  text-align: center; padding: 2rem; background: #111;
+  font-size: 0.9rem; color: #555;
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px){
+  .nav-links {  }
+  .hero-content h1 { font-size: 2.2rem; }
+}
+
+/* Botón hamburguesa oculto en desktop */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+}
+
+/* Menú hamburguesa responsive */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #111;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 1rem 0;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    text-align: center;
+    margin: 10px 0;
+  }
+}
